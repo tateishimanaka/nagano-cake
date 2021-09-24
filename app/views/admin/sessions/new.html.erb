@@ -1,0 +1,30 @@
+<div class="container mt-3 px-5">
+  <h4 class="ml-5 pl-3">管理者ログイン</h4>
+  <div class="mx-auto">
+    <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
+      <div class="form-group row mt-4">
+          <label for="email" class="col-md-2 col-form-label offset-md-3">メールアドレス</label>
+        <div class="col-md-4">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@exanmle.com", class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="passward" class="col-md-2 col-form-label offset-md-3">パスワード</label>
+        <div class="col-md-4">
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-2 offset-2"></div>
+        <div class="button col-md-4 offset-1">
+          <%= f.submit "ログイン", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+

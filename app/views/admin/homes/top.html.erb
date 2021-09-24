@@ -1,0 +1,38 @@
+<div class="container mt-3">
+  <h3 class="ml-5 pl-5">注文履歴一覧</h3>
+  <div class="row mt-5">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>購入個数</th>
+            <th>注文ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+          <tr>
+            <td>
+              <%= order.created_at.strftime('%Y/%m/%d') %>
+            </td>
+            <td>
+              <%= order.customer.last_name %><%= order.customer.first_name %>
+            </td>
+            <td>
+              <% count = 0 %>
+              <% order.order_items.each do |order_item| %>
+                <% count += order_item.amount %>
+              <% end %>
+              <%= count %>
+            </td>
+            <td></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

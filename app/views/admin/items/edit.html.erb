@@ -1,0 +1,120 @@
+<div class="container mt-3">
+  <h4 class="ml-5 pl-5">商品編集</h4>
+  <div class="row">
+    <div class="mx-auto">
+      <div class="col-md-12">
+        <%= form_with model: @item, url: admin_item_path(@item.id), local:true do |f| %>
+        <table>
+        
+          <tbody>
+            <tr>
+              <div class="form-group mt-1">
+                <td>
+                  <label for="image">
+                    商品画像
+                  </label>
+                </td>
+                <td><div class="ml-5"></div></td>
+                <td>
+                  <div class="mt-3">
+                    <%= f.attachment_field :image %>  
+                  </div>
+                  
+                </td>
+              </div>
+            </tr>
+            <tr>
+              <div class="form-group mt-1">
+                <td>
+                  <label for="item">
+                    商品名
+                  </label>
+                </td>
+                <td><div class="ml-5"></div></td>
+                <td>
+                  <div class="mt-3">
+                    <%= f.text_field :name, autofocus: true, class: "form-control" %>
+                  </div>
+                </td>
+              </div>
+            </tr>
+            <tr>
+              <div class="form-group mt-3">
+                <td>
+                  <label for="introduction">
+                    商品説明
+                  </label>
+                </td>
+                <td><div class="ml-5"></div></td>
+                <td>
+                  <div class="mt-3">
+                    <%= f.text_area :introduction, autofocus: true, class: "form-control" %>
+                  </div>
+                </td>
+              </div>
+            </tr>
+            <tr>
+              <div class="form-group mt-3">
+                <td>
+                  <label for="genre">
+                    ジャンル
+                  </label>
+                </td>
+                <td><div class="ml-5"></div></td>
+                  <td>
+                    <div class="mt-3">
+                      <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt:"選択して下さい", class: "form-control" %>
+                    </div>
+                  </td>
+              </div>
+            </tr>
+            <tr>
+              <div class="form-group mt-3">
+                <td>
+                  <label for="price">
+                    税抜価格
+                  </label>
+                </td>
+                <td><div class="ml-5"></div></td>
+                <td>
+                  <div class="mt-3">
+                    <%= f.text_field :price, autofocus: true, class: "form-control" %>
+                  </div>
+                </td>
+                <td><div class="mt-4">円</div></td>
+              </div>
+            </tr>
+            <tr>
+              <div class="form-group mt-3">
+                <td>
+                  <label for="status">
+                    販売ステータス
+                  </label>
+                </td>
+                <td><div class="ml-5"></div></td>
+                <td>
+                  <div class="mt-3">
+                    <%= f.radio_button :is_active, :true %>
+                    <%= f.label :is_active, "販売中", value: true %>
+                    <%= f.radio_button :is_active, :false %>
+                    <%= f.label :is_active, "販売停止中", value: false %>
+                  </div>
+                </td>
+              </div>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>
+                <div class="mt-3">
+                  <%= f.submit "編集を保存", class: "btn btn-success" %>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

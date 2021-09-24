@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+.main-visual-text{
+    background-image: image-url('cake_shop.jpg');
+    background-size:  cover;
+ }
+
+ .main{
+    background-image: image-url('cake.jpg');
+    background-size: cover;
+ }

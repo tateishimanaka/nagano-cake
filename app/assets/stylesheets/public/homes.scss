@@ -1,0 +1,15 @@
+// Place all the styles related to the public/homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-visual-text {
+    background-image: url("<%= asset_path('cake_shop.jpg') %>");
+    background-size:cover;
+    height: 600px;
+}
+
+.main{
+    background-image: url("<%= asset_path('cake.jpg') %>");
+    background-size:cover;
+    height: 500px;
+}
