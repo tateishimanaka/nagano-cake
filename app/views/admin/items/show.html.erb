@@ -81,7 +81,11 @@
             <td>
               <strong>
                 <div class="mt-3">
-                  <%= @item.is_active ? '販売中' : '販売停止中' %>
+                  <% if @item.is_active == true %>
+                  <div class="text-success">販売中</div>
+                <% else %>
+                  <div class="text-secondary">販売停止中</div>
+                <% end %>
                 </div>
               </strong>
             </td>
