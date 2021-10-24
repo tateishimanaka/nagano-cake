@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     passwards: 'public/passwards',
     registrations: 'public/registrations'
   }
-  
+
   namespace :admin do
     root to: "homes#top"
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:show, :update]
     resources :order_items, only: [:update]
   end
-  
+
   scope module: :public do
     root to: "homes#top"
     get "/about" => "homes#about", as: "about_path"
@@ -29,10 +29,10 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :update, :destroy, :create]
     delete "/cart_items/destroy_all" => "cart_items#destroy_all", as: "cart_item_destroy_path"
     resources :orders, only: [:new, :create, :index, :show]
-    post "/orders/comfilm" => "orders#comfilm", as: "order_comfilm_path"
-    get "/orders/complete" => "orders#complete", as: "order_complete_path"
+    post "/orders/comfilm" => "orders#comfilm", as: "order_comfilm"
+    get "/orders/complete" => "orders#complete", as: "order_complete"
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-    
+
   end
 end
 
