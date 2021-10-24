@@ -3,7 +3,29 @@
     <h4>ショッピングカート</h4>
     <div class="col-md-10">
       <table class="table table-bordered">
-        
+        <thead>
+          <tr>
+            <th scope="col">商品名</th>
+            <th scope="col">単価(税込み)</th>
+            <th scope="col">数量</th>
+            <th scope="col">小計</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <% @cart_items.each do |cart_item| %>
+        <tbody>
+          <tr>
+            <td scope="row">
+              <%= attachment_image_tag cart_item.item, :image, format: 'jpeg', size: "90x70" %>
+              <%= cart_item.item.name %>
+            </td>
+            <td scope="row">
+              <%= cart_item.item.add_tax_price.to_s(:delimited) %>
+            </td>
+            <td scope="row"></td>
+          </tr>
+        </tbody>
+        <% end %>
       </table>
     </div>
   </div>
