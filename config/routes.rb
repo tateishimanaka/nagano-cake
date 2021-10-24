@@ -24,10 +24,10 @@ Rails.application.routes.draw do
     get "/about" => "homes#about", as: "about_path"
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update]
-    get "/customers/unsubscribe" => "customers#unsubscribe", as: "customer_unsubscribe_path"
+    get "/customers/unsubscribe" => "customers#unsubscribe", as: "customer_unsubscribe"
     patch "/customers/withdraw" => "customers#withdraw", as: "customer_withdraw_path"
+    delete "/cart_items/destroy_all" => "cart_items#destroy_all", as: "cart_item_destroy"
     resources :cart_items, only: [:index, :update, :destroy, :create]
-    delete "/cart_items/destroy_all" => "cart_items#destroy_all", as: "cart_item_destroy_path"
     resources :orders, only: [:new, :create, :index, :show]
     post "/orders/comfilm" => "orders#comfilm", as: "order_comfilm"
     get "/orders/complete" => "orders#complete", as: "order_complete"
