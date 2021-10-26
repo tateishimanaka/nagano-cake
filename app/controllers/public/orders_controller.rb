@@ -44,11 +44,21 @@ class Public::OrdersController < ApplicationController
       @order_item.order_id = @order.id
       @order_item.save
     end
+    @cart_items.destroy_all
     redirect_to order_complete_path
   end
 
+  def index
+    @orders = current_customer.orders
+  end
+
+  def show
+  end
+
   private
+
   def order_params
     params.require(:order).permit(:postal_code, :address, :name, :postage, :total_price, :payment_method, :order_status, :customer_id)
   end
+
 end

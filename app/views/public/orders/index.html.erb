@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <h5>注文履歴一覧</h5>
+    <% @orders.each do |order| %>
+    <%= order.postal_code %>
+    <%= order.address %>
+    <%= order.name %
+    <% end %>
+
+  </div>
+</div>
