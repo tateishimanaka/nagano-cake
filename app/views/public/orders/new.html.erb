@@ -9,7 +9,7 @@
       <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
       <%= f.label :payment_method, Order.payment_methods_i18n[:transfer] %>
 
-      <h5><strong>お届け先</strong></h5>  
+      <h5><strong>お届け先</strong></h5>
       <%= f.radio_button :address_option, 0, checked: "checked" %>ご自身の住所<br>
         〒<%= current_customer.postal_code %> <%= current_customer.address %><br>
         <%= current_customer.last_name %><%= current_customer.first_name %>
@@ -36,10 +36,7 @@
             <%= f.text_field :name, autofocus: true, placeholder: "令和道子", class: "form-control" %>
           </div>
         </div>
-        <%= f.hidden_field :postage, value: @order.postage %>
-        <%= f.hidden_field :total_price, value: @order.total_price %>
-        <%= f.hidden_field :order_status, value: @order.order_status %>
-        <%= f.hidden_field :customer_id, value: @order.customer_id %>
+
         <%= f.submit "確認画面へ進む", class: "btn btn-success" %>
     </form>
   <% end %>
