@@ -6,7 +6,9 @@
         <tbody>
           <tr>
             <th scope="row" class="table-secondary">注文日</th>
-            <th scope="row"></th>
+            <th scope="row">
+              <%= @order.created_at.strftime('%Y/%m/%d') %>
+            </th>
           </tr>
           <tr>
             <th scope="row" class="table-secondary">配送先</th>
