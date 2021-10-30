@@ -22,16 +22,16 @@
         <tr>
           <td>支払方法</td>
           <td>
-            <%= @order.payment_method %>
+            <%= @order.payment_method_i18n %>
           </td>
         </tr>
         <tr>
           <td>注文ステータス</td>
           <%= form_with model: @order, url: admin_order_path(@order.id), local:true do |f| %>
           <td>
-            <%= f.
+            <%= f.select :order_status, Order.order_statuses_i18n.keys.map { |k| [Order.order_statuses_i18n[k], k]} %>
           </td>
-          <td></td>
+          <td><%= f.submit "更新", class: "btn btn-success" %></td>
           <% end %>
         </tr>
       </tbody>
@@ -65,6 +65,14 @@
             <td>
               <%= order_item.subtotal %>
             </td>
+            <%= form_with model: order_item, url: admin_order_item_path(order_item.id), local:true do |f| %>
+            <td>
+              <%= f.select :order_item_status, OrderItem.order_item_statuses_i18n.keys.map { |k| [OrderItem.order_item_statuses_i18n[k], k]} %>
+            </td>
+            <td>
+              <%= f.submit "更新", class: "btn btn-success" %>
+            </td>
+            <% end %>
           </tr>
         </tbody>
         <% end %>
