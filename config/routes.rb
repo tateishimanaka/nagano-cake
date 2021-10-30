@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show]
     resource :customers, only: [:show, :edit, :update]
     get "/customers/unsubscribe" => "customers#unsubscribe", as: "customer_unsubscribe"
-    patch "/customers/withdraw" => "customers#withdraw", as: "customer_withdraw_path"
+    patch "/customers/withdraw" => "customers#withdraw", as: "customer_withdraw"
     delete "/cart_items/destroy_all" => "cart_items#destroy_all", as: "cart_item_destroy"
     resources :cart_items, only: [:index, :update, :destroy, :create]
     post "/orders/comfilm" => "orders#comfilm", as: "order_comfilm"
