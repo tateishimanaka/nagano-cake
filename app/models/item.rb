@@ -4,10 +4,13 @@ class Item < ApplicationRecord
   belongs_to :genre
 
   attachment :image
-  
+
   def add_tax_price
     (self.price * 1.10).round
   end
 
-
+  validates :name, presence: true
+  validates :image, presence: true
+  validates :introduction, presence: true
+  validates :price, presence: true
 end

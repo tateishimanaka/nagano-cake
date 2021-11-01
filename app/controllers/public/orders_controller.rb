@@ -12,7 +12,7 @@ class Public::OrdersController < ApplicationController
         @order.total_price += cart_item.subtotal
       end
     @order.postage = 800
-    @order.order_status = "waiting_for_payment"
+    @order.order_status = "stay"
     if params[:order][:address_option] == "0"
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
