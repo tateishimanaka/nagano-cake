@@ -20,12 +20,21 @@
     </div>
   </div>
   <div class="row mt-4">
-    <!--<div class="mx-auto">-->
-      <div class="col-md-4">
-        <%= link_to "退会しない", customers_path, class: "btn btn-info" %>
-      </div>
-      <div class="col-md-4">
-        <%= link_to "退会する", customer_withdraw_path, method: :patch, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
-      </div>
+    <div class="mx-auto">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <div class="mr-3">
+              <%= link_to "退会しない", customers_path, class: "btn btn-info" %>
+            </div>
+          </td>
+          <td>
+            <%= link_to "退会する", customer_withdraw_path, method: :patch, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
   </div>
 </div>

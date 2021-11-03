@@ -1,16 +1,7 @@
 <div class="container mt-3">
   <div class="row mt-5">
     <div class="col-md-2">
-      <div class="card border-info mb-3" style="max-width: 18rem;">
-        <div class="card-header">ジャンル</div>
-        <div class="card-body text-info">
-          <% @genres.each do |genre| %>
-            <p class="card-text">
-              <%= genre.name %>
-            </p>
-          <% end %>
-        </div>
-      </div>
+      <%= render 'public/homes/list', genres: @genres %>
     </div>
     <div class="col-md-10">
       <div class="main-visual">
@@ -27,21 +18,21 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
 
     </div>
     <% @items.each do |item| %>
     <div class="col-md-2">
       <div class="image">
-        <%= link_to item_path(item.id) do %> 
+        <%= link_to item_path(item.id) do %>
           <%= attachment_image_tag item, :image, format: 'jpeg', size: "135x135" %>
         <% end %>
       </div>
       <div class="name">
-        <%= item.name %>  
+        <%= item.name %>
       </div>
       <div class="price">
-        ￥<%= item.price.to_s(:delimited) %>    
+        ￥<%= item.price.to_s(:delimited) %>
       </div>
     </div>
     <% end %>

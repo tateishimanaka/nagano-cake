@@ -1,8 +1,14 @@
 <div class="container">
   <div class="row">
-    <h4>ショッピングカート</h4>
-    <%= link_to "カートを空にする", cart_item_destroy_path, method: :delete, "data-confirm" => "本当に削除しますか", class: "btn btn-danger" %>
-    <div class="col-md-10">
+    <div class="col-md-4">
+      <h4>ショッピングカート</h4>
+    </div>
+    <div class="col-md-3 offset-md-5">
+      <%= link_to "カートを空にする", cart_item_destroy_path, method: :delete, "data-confirm" => "本当に削除しますか", class: "btn btn-danger" %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-10 offset-md-1">
       <table class="table table-bordered">
         <thead class="thead-light">
           <tr>
@@ -43,10 +49,10 @@
     </div>
   </div>
   <div class="row mt-4">
-    <div class="col-4">
-      <%= link_to "買い物を続ける", items_path, class: "btn btn-info" %>
+    <div class="col-4 offset-md-1">
+      <%= link_to "買い物を続ける", root_path, class: "btn btn-info" %>
     </div>
-    <div class="col-md-4 offset-md-4">
+    <div class="col-md-3 offset-md-3">
       <table class="table table-bordered">
         <tbody>
           <tr>
