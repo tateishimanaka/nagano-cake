@@ -1,7 +1,7 @@
 class Public::ItemsController < ApplicationController
 
   def index
-    @get_items = Item.where(is_active: true)
+    @get_items = Item.where(is_active: true).order("id DESC")
     @items = @get_items.page(params[:page]).per(10)
   end
 

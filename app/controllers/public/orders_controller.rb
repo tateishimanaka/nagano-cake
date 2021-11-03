@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
+
   def new
     @order = Order.new
   end
@@ -50,6 +52,7 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.orders
+
   end
 
   def show
