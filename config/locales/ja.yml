@@ -16,3 +16,9 @@ ja:
         stay: '制作待ち'
         make: '制作中'
         finish: '制作完了'
+  activerecord:
+    attributes:
+      customer:
+        email: 'メールアドレス'
+        last_name: '姓'
+        first_name: '名'
