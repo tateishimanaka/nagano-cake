@@ -4,7 +4,7 @@ class Order < ApplicationRecord
 
   enum payment_method: { credit_card: 0, transfer: 1 }
   enum order_status: { stay: 0, confirm: 1, make: 2, ready_to_ship: 3, finish: 4 }
-
+0
   def total
     total_price + postage
   end
