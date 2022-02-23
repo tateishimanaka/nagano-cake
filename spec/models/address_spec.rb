@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-Rspec.describe 'addressモデルのテスト', type: :model do
+RSpec.describe 'addressモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { address.valid? }
 

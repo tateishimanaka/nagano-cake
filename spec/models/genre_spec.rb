@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-Rspec.describe 'Genreモデルのテスト', type: :model do
+RSpec.describe 'Genreモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { genre.valid? }
 

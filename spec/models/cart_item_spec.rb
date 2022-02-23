@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-Rspec.describe 'CartItemモデルのテスト', type: :model do
+RSpec.describe 'CartItemモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { cart_item.valid? }
 
@@ -10,7 +10,7 @@ Rspec.describe 'CartItemモデルのテスト', type: :model do
     let(:item) { create(:item) }
     let!(:cart_item) { build(:cart_item, customer_id: customer.id, item_id: item.id ) }
 
-    contxt 'amountカラム' do
+    context 'amountカラム' do
       it '空欄でないこと' do
         cart_item.amount = ''
         is_expected.to eq false

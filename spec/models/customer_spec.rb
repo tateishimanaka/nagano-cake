@@ -2,11 +2,11 @@
 
 require 'rails_helper'
 
-Rspec.describe 'Customerモデルのテスト', type: :model do
+RSpec.describe 'Customerモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { customer.valid? }
 
-    let!(:other_customer) { create(:customer) }
+    # let!(:other_customer) { create(:customer) }
     let(:customer) { build(:customer) }
 
     context 'last_nameカラム' do

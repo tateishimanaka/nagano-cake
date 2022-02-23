@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-Rspec.describe 'OrderItemモデルのテスト', type: :model do
+RSpec.describe 'OrderItemモデルのテスト', type: :model do
   describe 'アソシエーションのテスト' do
     context 'Itemモデルとの関係性' do
       it 'N:1の関係性になっているか' do
