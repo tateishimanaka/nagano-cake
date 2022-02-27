@@ -3,61 +3,66 @@
 require 'rails_helper'
 
 RSpec.describe 'Customerモデルのテスト', type: :model do
-  describe 'バリデーションのテスト' do
-    subject { customer.valid? }
-
-    # let!(:other_customer) { create(:customer) }
-    let(:customer) { build(:customer) }
-
-    context 'last_nameカラム' do
-      it '空欄でないこと' do
-        customer.last_name = ''
-        is_expected.to eq false
-      end
-    end
-
-    context 'first_nameカラム' do
-      it '空欄でないこと' do
-        customer.first_name = ''
-        is_expected.to eq false
-      end
-    end
-
-    context 'last_name_kanaカラム' do
-      it '空欄でないこと' do
-        customer.last_name_kana = ''
-        is_expected.to eq false
-      end
-    end
-
-    context 'first_name_kanaカラム' do
-      it '空欄でないこと' do
-        customer.first_name_kana = ''
-        is_expected.to eq false
-      end
-    end
-
-    context 'postal_codeカラム' do
-      it '空欄でないこと' do
-        customer.postal_code = ''
-        is_expected.to eq false
-      end
-    end
-
-    context 'addressカラム' do
-      it '空欄でないこと' do
-        customer.address = ''
-        is_expected.to eq false
-      end
-    end
-
-    context 'telephone_numberカラム' do
-      it '空欄でないこと' do
-        customer.telephone_number = ''
-        is_expected.to eq false
-      end
+  describe '実際に保存してみる' do
+    it '有効な投稿の場合は保存されるのか' do
+      expect(FactoryBot.build(:customer)).to be_valid
     end
   end
+  # describe 'バリデーションのテスト' do
+  #   subject { customer.valid? }
+
+  #   # let!(:other_customer) { create(:customer) }
+  #   let(:customer) { build(:customer) }
+
+  #   context 'last_nameカラム' do
+  #     it '空欄でないこと' do
+  #       customer.last_name = ''
+  #       is_expected.to eq false
+  #     end
+  #   end
+
+  #   context 'first_nameカラム' do
+  #     it '空欄でないこと' do
+  #       customer.first_name = ''
+  #       is_expected.to eq false
+  #     end
+  #   end
+
+  #   context 'last_name_kanaカラム' do
+  #     it '空欄でないこと' do
+  #       customer.last_name_kana = ''
+  #       is_expected.to eq false
+  #     end
+  #   end
+
+  #   context 'first_name_kanaカラム' do
+  #     it '空欄でないこと' do
+  #       customer.first_name_kana = ''
+  #       is_expected.to eq false
+  #     end
+  #   end
+
+  #   context 'postal_codeカラム' do
+  #     it '空欄でないこと' do
+  #       customer.postal_code = ''
+  #       is_expected.to eq false
+  #     end
+  #   end
+
+  #   context 'addressカラム' do
+  #     it '空欄でないこと' do
+  #       customer.address = ''
+  #       is_expected.to eq false
+  #     end
+  #   end
+
+  #   context 'telephone_numberカラム' do
+  #     it '空欄でないこと' do
+  #       customer.telephone_number = ''
+  #       is_expected.to eq false
+  #     end
+  #   end
+  # end
 
   describe 'アソシエーションのテスト' do
     context 'CartItemモデルとの関係性' do

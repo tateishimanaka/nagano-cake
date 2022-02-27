@@ -1,14 +1,22 @@
 FactoryBot.define do
   factory :customer do
     email { Faker::Internet.email }
-    password { 'password' }
-    last_name { Faker::Lorem.characters(number: 2) }
-    first_name { Faker::Name.first_name }
-    last_name_kana { Faker::Name.last_name_kana }
-    first_name_kana { Faker::Name.first_name_kana }
-    postal_code { Faker::Address.postcode }
-    address { Faker::Address.full_address }
-    telephone_number { Faker::Number.number }
-    is_deleted { Faker::Boolean.boolean(true_ratio: 0.2) }
+    passward { "111111" }
+    last_name { "有村" }
+    first_name { "架純" }
+    last_name_kana { "アリムラ" }
+    first_name_kana { "カスミ" }
+    postal_code { "1234567" }
+    address { "兵庫" }
+    telephone_number { "0300998877" }
+    # password { 'password' }
+    # last_name { Faker::Lorem.characters(number: 2) }
+    # first_name { Faker::Lorem.characters(number: 2) }
+    # last_name_kana { Faker::Lorem.characters(number: 3) }
+    # first_name_kana { Faker::Lorem.characters(number: 3) }
+    # postal_code { Faker::Lorem.characters(numnber: 7) }
+    # address { Faker::Lorem.characters(number: 5) }
+    # telephone_number { Faker::characters(number: 10) }
+    is_deleted { "false" }
   end
 end
