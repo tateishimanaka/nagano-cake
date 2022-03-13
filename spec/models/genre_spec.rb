@@ -15,4 +15,12 @@ RSpec.describe 'Genreモデルのテスト', type: :model do
       end
     end
   end
+
+  describe 'アソシエーションのテスト' do
+    context 'Itemモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(Genre.reflect_on_association(:items).macro).to eq :has_many
+      end
+    end
+  end
 end
