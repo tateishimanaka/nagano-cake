@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Itemモデルのテスト' do
+RSpec.describe 'Itemモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { item.valid? }
 
