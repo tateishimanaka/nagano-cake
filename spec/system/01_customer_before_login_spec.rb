@@ -13,8 +13,8 @@ describe '[STEP1]customerログイン前のテスト' do
         expect(current_path).to eq '/'
       end
       it 'ログインリンクが表示される' do
-        log_in_link = find_all('a')[5].native.inner_text
-        expect(log_in_link).to match(/log in/i)
+        log_in_link = find_all('a')[4].native.inner_text
+        expect(log_in_link).to match "ログイン"
       end
     end
   end
