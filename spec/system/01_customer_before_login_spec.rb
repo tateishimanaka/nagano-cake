@@ -57,5 +57,31 @@ describe '[STEP1]customerログイン前のテスト' do
         expect(page).to have_link log_in_link, href: new_customer_session_path
       end
     end
+
+    context 'リンクの遷移先の確認' do
+      it 'Aboutを押すと,アバウト画面に遷移する' do
+        about_link = find_all('a')[1]
+        about_link.click
+        expect(page).to have_current_path about_path_path
+      end
+
+      it '商品一覧画を押すと、商品一覧画面に遷移する' do
+        items_link = find_all('a')[2]
+        items_link.click
+        expect(page).to have_current_path items_path
+      end
+
+      it '新規登録を押すと、新規登録画面に遷移する' do
+        sign_up_link = find_all('a')[3]
+        sign_up_link.click
+        expect(page).to have_current_path new_customer_registration_path
+      end
+
+      it 'ログインを押すと、ログイン画面に遷移する' do
+        log_in_link = find_all('a')[4]
+        log_in_link.click
+        expect(page).to have_current_path new_customer_session_path
+      end
+    end
   end
 end
