@@ -158,7 +158,35 @@ describe '[STEP1]customerログイン前のテスト' do
         expect(page).to have_button '新規登録'
       end
     end
-    
-    context ''
+
+    context '新規登録成功のテスト' do
+      before do
+        # fill_in 'customer[last_name]', with: Faker::Lorem.characters(number: 2)
+        # fill_in 'customer[first_name]', with: Faker::Lorem.characters(number: 2)
+        # fill_in 'customer[last_name_kana]', with: Faker::Lorem.characters(number: 4)
+        # fill_in 'customer[first_name_kana]', with: Faker::Lorem.characters(number: 4)
+        # fill_in 'customer[postal_code]', with: Faker::Lorem.characters(number: 7)
+        # fill_in 'customer[address]', with: Faker::Lorem.characters(number: 5)
+        # fill_in 'customer[telephone_number]', with: Faker::Lorem.characters(number: 10)
+        # fill_in 'customer[password]', with: 'password'
+        # fill_in 'customer[password_confirmation]', with: 'password'
+        # fill_in 'customer[email]', with: Faker::Internet.email
+        @customer = FactoryBot.build(:customer)
+      end
+
+      it '正しく登録される' do
+        fill_in 'customer[email]', with: @customer.email
+        fill_in 'customer[last_name]', with: @customer.last_name
+        fill_in 'customer[first_name]', with: @customer.first_name
+        fill_in 'customer[last_name_kana]', with: @customer.last_name_kana
+        fill_in 'customer[first_name_kana]', with: @customer.first_name_kana
+        fill_in 'customer[postal_code]', with: @customer.postal_code
+        fill_in 'customer[address]', with: @customer.address
+        fill_in 'customer[telephone_number]', with: @customer.telephone_number
+        # expect { click_button '新規登録' }.to change(Customer.all, :count).by(1)
+        expect{ find('input[name="commit"]').click }.to change { Customer.count }.by(1)
+
+      end
+    end
   end
 end
