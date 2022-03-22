@@ -84,4 +84,81 @@ describe '[STEP1]customerログイン前のテスト' do
       end
     end
   end
+
+  describe 'About画面のテスト' do
+    before do
+      visit '/about'
+    end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/about'
+      end
+    end
+  end
+
+  describe '商品一覧画面のテスト' do
+
+  end
+
+  describe '新規登録のテスト' do
+    before do
+      visit '/customer/sign_up'
+    end
+
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/customer/sign_up'
+      end
+
+      it '「新規会員登録」と表示される' do
+        expect(page).to have_content '新規会員登録'
+      end
+
+      it 'last_nameフォームが表示される' do
+        expect(page).to have_field 'customer[last_name]'
+      end
+
+      it 'first_nameフォームが表示される' do
+        expect(page).to have_field 'customer[first_name]'
+      end
+
+      it 'last_name_kanaフォームが表示される' do
+        expect(page).to have_field 'customer[last_name_kana]'
+      end
+
+      it 'first_name_kanaフォームが表示される' do
+        expect(page).to have_field 'customer[first_name_kana]'
+      end
+
+      it 'emailフォームが表示される' do
+        expect(page).to have_field 'customer[email]'
+      end
+
+      it 'postal_codeフォームが表示される' do
+        expect(page).to have_field 'customer[postal_code]'
+      end
+
+      it 'addressフォームが表示される' do
+        expect(page).to have_field 'customer[address]'
+      end
+
+      it 'telephone_numberフォームが表示される' do
+        expect(page).to have_field 'customer[telephone_number]'
+      end
+
+      it 'passwordフォームが表示される' do
+        expect(page).to have_field 'customer[password]'
+      end
+
+      it 'password確認用フォームが表示される' do
+        expect(page).to have_field 'customer[password_confirmation]'
+      end
+
+      it '新規登録ボタンが表示される' do
+        expect(page).to have_button '新規登録'
+      end
+    end
+    
+    context ''
+  end
 end
