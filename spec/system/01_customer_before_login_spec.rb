@@ -183,6 +183,8 @@ describe '[STEP1]customerログイン前のテスト' do
         fill_in 'customer[postal_code]', with: @customer.postal_code
         fill_in 'customer[address]', with: @customer.address
         fill_in 'customer[telephone_number]', with: @customer.telephone_number
+        fill_in 'customer[password]', with: @customer.password
+        fill_in 'customer[password_confirmation]', with: @customer.password_confirmation
         # expect { click_button '新規登録' }.to change(Customer.all, :count).by(1)
         expect{ find('input[name="commit"]').click }.to change { Customer.count }.by(1)
 
