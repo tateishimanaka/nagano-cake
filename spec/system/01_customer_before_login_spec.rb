@@ -207,9 +207,17 @@ describe '[STEP1]customerログイン前のテスト' do
       it 'passwordフォームが表示される' do
         expect(page).to have_field 'customer[password]'
       end
-      
+
       it 'last_nameフォームが表示されない' do
-        expect(page).to 
+        expect(page).not_to have_field 'customer[last_name]'
+      end
+
+      it 'first_nameフォームが表示されない' do
+        expect(page).not_to have_field 'customer[first_name]'
+      end
+
+      it '「ログイン」ボタンが表示される' do
+        expect(page).to have_button 'ログイン'
       end
     end
   end
