@@ -220,5 +220,19 @@ describe '[STEP1]customerログイン前のテスト' do
         expect(page).to have_button 'ログイン'
       end
     end
+
+    context 'ログイン成功のテスト' do
+      before do
+        fill_in 'customer[email]', with: customer.email
+        fill_in 'customer[password]', with: customer.password
+        click_button 'ログイン'
+      end
+
+      it 'ログイン後のリダイレクト先がトップ画面になっている' do
+        expect(current_path).to eq '/'
+      end
+    end
+    
+    
   end
 end
