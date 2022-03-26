@@ -174,14 +174,43 @@ describe '[STEP1]customerログイン前のテスト' do
       end
 
       it '正しく登録される' do
-        expect { click_button '新規登録' }.to change(Customer.all, :count).by(1)
+        expect { click_button '新規登録' }.to change(customer, :count).by(1)
       end
 
       it '新規登録後のリダイレクト先が、トップ画面になっている' do
         click_button '新規登録'
-        let(current_path).to eq '/'
+        expect(current_path).to eq '/'
       end
     end
+  end
 
+  describe 'ログイン' do
+    let(:customer) { create(:customer) }
+
+    before do
+      visit new_customer_session_path
+    end
+
+    context '表示が正しい' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/customer/sign_in'
+      end
+
+      it '「ログイン」と表示される' do
+        expect(page).to have_content 'ログイン'
+      end
+
+      it 'emailフォームが表示される' do
+        expect(page).to have_field 'customer[email]'
+      end
+
+      it 'passwordフォームが表示される' do
+        expect(page).to have_field 'customer[password]'
+      end
+      
+      it 'last_nameフォームが表示されない' do
+        expect(page).to 
+      end
+    end
   end
 end

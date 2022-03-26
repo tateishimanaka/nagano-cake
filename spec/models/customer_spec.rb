@@ -3,6 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Customerモデルのテスト', type: :model do
+  describe '実際に保存してみる' do
+    it '有効な場合、保存されるか' do
+      expect(FactoryBot.build(:customer)).to be_valid
+    end
+  end
+  
   describe 'バリデーションのテスト' do
     subject { customer.valid? }
 
